@@ -126,7 +126,6 @@ export PATH="/Users/mike/.local/bin:$PATH"
 # Direnv (shell extension for (un)loading env variables depending on directory)
 eval "$(direnv hook zsh)"
 
-source /Users/mike/.docker/init-zsh.sh || true # Added by Docker Desktop
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 # nvm was installed with brew
