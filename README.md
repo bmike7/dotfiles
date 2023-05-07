@@ -6,6 +6,12 @@ install (brew taps & casks, ...):
 
 ```yadm bootstrap```
 
+## NVim
+
+The nvim configuration is based on [NvChad](https://nvchad.com/).
+Make sure to install it accordingly. The configuration in 
+`.config/nvim/lua/custom` customises this setup.
+
 ## TMUX
 
 For me nn the past, `TMUX` wasn't straightforward to install
