@@ -67,6 +67,15 @@ local plugins = {
     end,
   },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function()
+      local nv_chad_opts = require "plugins.configs.telescope"
+      local custom_opts = require "custom.configs.telescope"
+      return vim.tbl_deep_extend("force", nv_chad_opts, custom_opts)
+    end,
+  },
+
   -- floating windows
   {
     "voldikss/vim-floaterm",

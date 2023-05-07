@@ -33,6 +33,23 @@ M.ui = {
       "     ▜███████████████████████▛     ",
       "                                   ",
     },
+
+    buttons = {
+      { "󰭎  Find File", "Spc f f", "Telescope find_files" },
+      { "󱝪  Recent File", "Spc f o", "Telescope oldfiles" },
+      { "󱘣  Find Word", "Spc f w", "Telescope live_grep" },
+      { "  Bookmarks", "Spc b m", "Telescope marks" },
+      { "  Themes", "Spc t h", "Telescope themes" },
+      { "  Mappings", "Spc c h", "NvCheatsheet" },
+    },
+
+    lsp = {
+      -- show function signatures i.e args as you type
+      signature = {
+        disabled = true,
+        silent = true, -- silences 'no signature help available' message from appearing
+      },
+    },
   }
 }
 
