@@ -12,6 +12,9 @@
       },
       "romkatv/powerlevel10k": {
         "revision": "b3326caa5ffb62be05fba9f05cca216e5927be56"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "80944562a0b19456cd47768c62d107fee522cc3a"
       }
     },
     "brew": {
@@ -970,6 +973,12 @@
         "version": "3.4.19",
         "options": {
           "full_name": "iterm2"
+        }
+      },
+      "font-fira-code-nerd-font": {
+        "version": "3.0.0",
+        "options": {
+          "full_name": "font-fira-code-nerd-font"
         }
       }
     }
