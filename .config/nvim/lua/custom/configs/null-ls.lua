@@ -7,9 +7,13 @@ local sources = {
    formatting.black,
    formatting.isort,
 
+   formatting.rustfmt,
+
    lint.flake8,
    lint.mypy,
    lint.mypy,
+
+   lint.typos,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

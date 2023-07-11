@@ -29,7 +29,8 @@ local plugins = {
 
        -- low level
         "c",
-        "zig"
+        "zig",
+        "rust"
       },
     },
   },
@@ -38,6 +39,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "rst",
         "lua-language-server",
         "html-lsp",
         -- python
@@ -46,6 +48,9 @@ local plugins = {
         "flake8",
         "mypy",
         "isort",
+        -- rust
+        "rust-analyzer",
+        "rustfmt"
       },
     },
   },
