@@ -44,6 +44,7 @@ local plugins = {
         "html-lsp",
         -- python
         "python-lsp-server",
+        "pyright",
         "black",
         "flake8",
         "mypy",
@@ -70,6 +71,15 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+  },
+
+  -- coc: Conquer Of Completion
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    config = function ()
+      require "custom.configs.coc"
+    end
   },
 
   {

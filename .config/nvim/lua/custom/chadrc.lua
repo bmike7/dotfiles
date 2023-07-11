@@ -50,7 +50,7 @@ M.ui = {
         silent = true, -- silences 'no signature help available' message from appearing
       },
     },
-  }
+  },
 }
 
 M.plugins = "custom.plugins"
