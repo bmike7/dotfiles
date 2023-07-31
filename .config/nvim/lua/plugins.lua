@@ -7,6 +7,14 @@ return {
 	"folke/neodev.nvim",
 	{"folke/trouble.nvim", lazy=false, dependencies = { "nvim-tree/nvim-web-devicons" }},
 
+	-- tmux-like navigation
+	{
+		"alexghergh/nvim-tmux-navigation",
+		config= function()
+			require "plugins_config.nvim-tmux-navigation"
+		end
+	},
+
 	-- search
 	{
 		'nvim-telescope/telescope.nvim',
@@ -65,15 +73,17 @@ return {
 	},
 
 	-- debugging
-	"mfussenegger/nvim-dap",
-
-	-- tmux-like navigation
-	{
-		"alexghergh/nvim-tmux-navigation",
-		config= function()
-			require "plugins_config.nvim-tmux-navigation"
-		end
-	},
+    "mfussenegger/nvim-dap",
+    --{
+    --    "mfussenegger/nvim-dap-python",
+    --    dependencies = {
+    --        "mfussenegger/nvim-dap",
+    --        "rcarriga/nvim-dap-ui",
+    --    },
+    --    config = function ()
+    --        require "plugins_config.nvim-dap-python"
+    --    end
+    -- },
 
 	-- treesitter
 	{
@@ -108,12 +118,6 @@ return {
         end
     },
     {
-        "sunjon/shade.nvim",
-        config = function ()
-            require "plugins_config.shade"
-        end
-    },
-    {
         "lewis6991/gitsigns.nvim",
         config = function ()
             require "plugins_config.gitsigns"
@@ -124,5 +128,13 @@ return {
         config = function ()
             require "plugins_config.lsp_signature"
         end
-    }
+    },
+    {
+        "akinsho/bufferline.nvim",
+        tag = "v4.3.0",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function ()
+            require "plugins_config.bufferline"
+        end
+    },
 }

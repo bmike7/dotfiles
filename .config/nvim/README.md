@@ -46,3 +46,8 @@ because of fighting with preconfigured setup of others)
 - styling (Gorilla 🦍)
 
 - task automations (cross directory?...)
+
+
+# Known issues
+
+- Mason don't get visible anymore with the `shade` plugin
