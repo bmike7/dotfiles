@@ -140,7 +140,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(op completion zsh)"; compdef _op op
 
 # nvim
-export PATH="/Users/mike/.nvim-macos/bin:$PATH"
+# export PATH="/Users/mike/.nvim-macos/bin:$PATH"
 alias vi="nvim"
 
 # direnv

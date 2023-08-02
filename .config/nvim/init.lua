@@ -1,5 +1,3 @@
-require "lazy-bootstrap"
-
-require "keybindings"
-require("lazy").setup("plugins")
-require "settings"
+require("keybindings")
+require("lazy-config")
+require("settings")
