@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "ale": { "branch": "master", "commit": "29e5ffe35a2fa1ca5ba19eebfe7cdd0191c16e39" },
   "autoclose.nvim": { "branch": "main", "commit": "469782b0456f0b4f764378ffda94c18599544e09" },
   "bufferline.nvim": { "branch": "main", "commit": "99f0932365b34e22549ff58e1bea388465d15e99" },
