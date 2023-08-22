@@ -24,7 +24,7 @@ return {
         mason_lspconfig.setup_handlers {
             function (server_name)
                 -- will be set up by `rust-tools` and we don't want any conflicts
-                if server_name == "rust-analyzer" then
+                if server_name == "rust_analyzer" then
                     do return end
                 end
                 lspconfig[server_name].setup {}
