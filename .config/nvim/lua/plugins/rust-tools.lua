@@ -12,11 +12,6 @@ return {
         rt.setup({
             server = {
                 on_attach = function(_, bufnr)
-                    local dap = require("dap")
-
-                    vim.keymap.set("n", "<leader>bt", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
-                    vim.keymap.set("n", "<leader>bc", dap.continue, { desc = "Continue debugging" })
-
                     vim.keymap.set("n", "<C-a>", rt.hover_actions.hover_actions, { buffer = bufnr })
                     vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
                 end,

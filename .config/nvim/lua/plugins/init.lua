@@ -6,7 +6,4 @@ return {
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"folke/neodev.nvim",
 	{"folke/trouble.nvim", lazy=false, dependencies = { "nvim-tree/nvim-web-devicons" }},
-
-	-- debugging
-    "mfussenegger/nvim-dap",
 }
