@@ -1,6 +1,6 @@
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
@@ -16,3 +16,6 @@ vim.opt.termguicolors = true
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+-- copy to clipboard
+vim.opt.clipboard = "unnamedplus"

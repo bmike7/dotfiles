@@ -141,7 +141,7 @@ eval "$(op completion zsh)"; compdef _op op
 
 # nvim
 # export PATH="/Users/mike/.nvim-macos/bin:$PATH"
-alias vi="nvim"
+alias vi=nvim
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -152,3 +152,18 @@ alias lg='lazygit'
 # point to dotenv config
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=$PATH:/Users/mikebijl/.spicetify
+
+# custom symlinked scripts
+export PATH=$PATH:$HOME/.bin
+
+# detect python venv on changing directories
+# Thanks: https://dev.to/moniquelive/auto-activate-and-deactivate-python-venv-using-zsh-4dlm
+python_load_venv() {
+    MYVENV=.venv
+    # check if cwd contains $MYVENV
+    [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
+    [[ ! -d $MYVENV ]] && deactivate > /dev/null 2>&1
+}
+autoload -U add-zsh-hook
+add-zsh-hook chpwd python_load_venv
+python_load_venv

@@ -23,12 +23,22 @@ return {
         -- Setup every needed language server in lspconfig
         mason_lspconfig.setup_handlers {
             function (server_name)
-                -- will be set up by `rust-tools` and we don't want any conflicts
-                if server_name == "rust_analyzer" then
-                    do return end
-                end
                 lspconfig[server_name].setup {}
             end,
+            -- will be set up by `rust-tools` and we don't want any conflicts
+            ["rust_analyzer"] = function()
+                do return end
+            end,
+            ["pyright"] = function()
+                lspconfig.pyright.setup({
+                    settings = {
+                        python = {
+                            venv = ".venv",
+                            venvPath = os.getenv("PWD"),
+                        }
+                    }
+                })
+            end
         }
     end
 }
