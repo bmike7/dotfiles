@@ -17,6 +17,9 @@ return {
                 "lua_ls",
                 "tsserver",
                 "pyright",
+                "bashls",
+                "clangd",
+                "terraformls"
             }
         });
 
