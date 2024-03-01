@@ -7,6 +7,9 @@ return {
         require('nvim-treesitter.configs').setup({
             -- Needed parsers
             ensure_installed = {
+                "c",
+                "vim",
+                "vimdoc",
                 "lua",
                 "typescript",
                 "javascript",
