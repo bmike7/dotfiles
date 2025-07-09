@@ -1,47 +1,70 @@
 return {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    { "mason-org/mason.nvim", opts = {} },
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = {
+          "bashls",
+          "clangd",
+          "esbonio",
+          "ltex",
+          "lua_ls",
+          "pyright",
+          "ruff",
+          "rust_analyzer",
+          "svelte",
+          "taplo",
+          "terraformls",
+          "yamlls",
+        },
+      },
     },
-    lazy = false,
-    config = function()
-        local mason = require("mason")
-        local mason_lspconfig = require("mason-lspconfig")
-        local lspconfig = require("lspconfig")
+    {
+      "j-hui/fidget.nvim",
+      tag = "legacy",
+      event = "LspAttach",
+      opts = {
+        text = {
+          spinner = "arc",
+        },
+      },
+    },
+  },
+  config = function()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-        mason.setup()
-        mason_lspconfig.setup({
-            ensure_installed = {
-                "lua_ls",
-                "tsserver",
-                "pyright",
-                "bashls",
-                "clangd",
-                "terraformls"
-            }
-        });
+    local on_attach = function(client, bufnr)
+      local function map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+      local opts = { noremap = true, silent = true }
 
-        -- Setup every needed language server in lspconfig
-        mason_lspconfig.setup_handlers {
-            function (server_name)
-                lspconfig[server_name].setup {}
-            end,
-            -- will be set up by `rust-tools` and we don't want any conflicts
-            ["rust_analyzer"] = function()
-                do return end
-            end,
-            ["pyright"] = function()
-                lspconfig.pyright.setup({
-                    settings = {
-                        python = {
-                            venv = ".venv",
-                            venvPath = os.getenv("PWD"),
-                        }
-                    }
-                })
-            end
-        }
+      map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      map("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      map("n", "<leader>C", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+      map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+
+      if client:supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = bufnr,
+          callback = function() vim.lsp.buf.format() end,
+        })
+      end
     end
+
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+  end,
 }

@@ -1,17 +1,47 @@
 return {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    lazy = false,
-    config = function()
-        local builtin = require('telescope.builtin')
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
+  keys = {
+    { "<leader>ff", ":Telescope find_files hidden=true<cr>" },
+    { "<leader>fw", ":Telescope live_grep<cr>" },
+    { "<leader>fm", ":Telescope man_pages<cr>" },
+    { "<leader>fc", ":Telescope colorscheme<cr>" },
+    { "<leader>fr", ":Telescope lsp_references<cr>" },
+    { "<leader>fi", ":Telescope lsp_definitions<cr>" },
+    { "<leader>b", ":Telescope buffers<cr>" },
+    { "<leader>h", ":Telescope help_tags<cr>" },
+    { "z=", ":Telescope spell_suggest theme=cursor<cr>" },
+  },
+  config = function()
+    local actions = require("telescope.actions")
+    local themes = require("telescope.themes")
 
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
-        vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find in git files" })
-        vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Live grep" })
-        vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = "Find manual" })
-        vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = "Find colorscheme" })
-        vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = "Find reference" })
-        vim.keymap.set('n', '<leader>fi', builtin.lsp_definitions, { desc = "Find implementation" })
-    end,
-    dependencies = { "nvim-lua/plenary.nvim" },
+    require("telescope").setup({
+      defaults = {
+        file_ignore_patterns = {
+          ".git/",
+          ".tox/",
+          "node_modules/",
+        },
+        mappings = {
+          i = {
+            ["<esc>"] = actions.close,
+          },
+        },
+      },
+      extensions = {
+        fzf = {},
+        ["ui-select"] = {
+          themes.get_cursor(),
+        },
+      },
+    })
+
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("ui-select")
+  end,
 }
