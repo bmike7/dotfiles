@@ -33,6 +33,7 @@ default=(
 )
 sketchybar --default "${default[@]}"
 sketchybar --bar height=33
+sketchybar --add event aerospace_workspace_change
 
 source "$CONFIG_DIR/layout/left.sh"
 source "$CONFIG_DIR/layout/right.sh"
