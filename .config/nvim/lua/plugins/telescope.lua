@@ -8,6 +8,7 @@ return {
   keys = {
     { "<leader>ff", ":Telescope find_files hidden=true<cr>" },
     { "<leader>fw", ":Telescope live_grep<cr>" },
+    { "<leader>8", ":Telescope grep_string<cr>" },
     { "<leader>fm", ":Telescope man_pages<cr>" },
     { "<leader>fc", ":Telescope colorscheme<cr>" },
     { "<leader>fr", ":Telescope lsp_references<cr>" },
