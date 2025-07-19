@@ -36,6 +36,14 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Password'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Calendar'
+run = 'layout floating'
+
 [key-mapping]
     preset = 'qwerty'
 
@@ -118,11 +126,17 @@ automatically-unhide-macos-hidden-apps = true
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
-    alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
 
     # close window: for example when having multiple browsers open
     # with multiple tabs and you just want to get rid of one window
     alt-q = 'close --quit-if-last-window'
+
+    # quick launch most used applications
+    alt-g = 'exec-and-forget open -a /Applications/Ghostty.app'
+    alt-v = 'exec-and-forget open -a /Applications/Vivaldi.app'
+    alt-s = 'exec-and-forget open -a /Applications/Spotify.app'
+    alt-o = 'exec-and-forget open -a /Applications/1Password.app'
+    alt-a = 'exec-and-forget open -a /Applications/Notion Calendar.app'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
