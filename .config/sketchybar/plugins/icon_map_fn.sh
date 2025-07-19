@@ -2,7 +2,7 @@
 
 map_app () {
     case "$@" in
-        "iTerm2") echo "󰊠";;
+        "Ghostty") echo "󰊠";;
         "Vivaldi") echo "";;
         "Spotify") echo "󰓇";;
         "Mail") echo "";;
@@ -11,7 +11,7 @@ map_app () {
         "Slack" | "Teams") echo "󰒱";;
         "Notion Calendar") echo "󰨲";;
         "zoom.us") echo "";;
-        *) echo "󰯆";;
+        *) echo "$@";;
     esac
 }
 
