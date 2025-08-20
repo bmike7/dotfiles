@@ -5,30 +5,52 @@
 [core]
 	ignorecase = false
 	editor = nvim
-  pager = delta
 
 [pull]
 	rebase = true
 
-[interactive]
-  diffFilter = delta --color-only
+[column]
+	ui = auto
 
-[delta]
-  navigate = true    # use n and N to move between diff sections
-  ; light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-  line-numbers = true
+[branch]
+	sort = -committerdate
 
 [merge]
   conflictstyle = diff3
 
 [diff]
-  colorMoved = default
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 
+# for conflict resolution: "reuse recorded resolution"
 [rerere]
 	enabled = true
+	autoupdate = true
+
+[tag]
+	sort = version:refname
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[includeIf "gitdir:~/repos/work/"]
+    path = .gitconfig_work
+
+# references:
+# - https://blog.gitbutler.com/how-git-core-devs-configure-git/
