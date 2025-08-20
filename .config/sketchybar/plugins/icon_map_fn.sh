@@ -11,6 +11,7 @@ map_app () {
         "Slack" | "Teams") echo "󰒱";;
         "Notion Calendar") echo "󰨲";;
         "zoom.us") echo "";;
+        "Microsoft Teams") echo "";;
         *) echo "$@";;
     esac
 }
