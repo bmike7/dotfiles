@@ -1,4 +1,7 @@
-if status --is-login; and not set -q __fish_login_config_sourced
+# if status --is-login; and not set -q __fish_login_config_sourced
+#     set -x __fish_login_config_sourced 1
+# end
+if status is-interactive
     set -xg EDITOR nvim
     set -xg SHELL /opt/homebrew/bin/fish
     set -xg MANPAGER 'nvim +Man!'
@@ -12,13 +15,11 @@ if status --is-login; and not set -q __fish_login_config_sourced
 
     fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin /opt/homebrew/bin /usr/local/opt/libpq/bin
 
+    # https://github.com/pyenv/pyenv/issues/32
+    pyenv init - fish | source
     starship init fish | source
     op completion fish | source
 
-    set -x __fish_login_config_sourced 1
-end
-
-if status is-interactive
     alias vim nvim
 
     abbr l 'ls -lh'
