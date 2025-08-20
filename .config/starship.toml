@@ -3,7 +3,7 @@
 
 # Inserts a blank line between shell prompts
 add_newline = false
-format = """ $directory$character"""
+format = """$python$directory$character"""
 # move the rest to the right
 right_format = """$all"""
 
