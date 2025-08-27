@@ -9,7 +9,7 @@ font-family-bold = FiraCode Nerd Font Mono Bold
 # font-family-italic =
 # font-family-bold-italic =
 
-background-opacity = 0.85
+background-opacity = 0.92
 macos-titlebar-style = hidden
 
 command = /opt/homebrew/bin/fish
