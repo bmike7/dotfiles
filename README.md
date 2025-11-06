@@ -6,6 +6,30 @@ install (brew taps & casks, ...):
 
 ```yadm bootstrap```
 
+
+## Preview
+
+![dotfiles setup](./dotfiles_preview.png "Dotfiles setup")
+
+This shows you my current custom setup I'm rocking:
+
+- At the top, a minimal [SketchyBar](https://github.com/FelixKratz/SketchyBar)
+- [AeroSpace](https://github.com/nikitabobko/AeroSpace) for MacOS window management
+- [Ghostty](https://ghostty.org) as the terminal
+    - You gotta love ligatures (not every terminal has this)
+- [Fish](https://fishshell.com) as my shell
+- [Neovim](https://neovim.io) as a text-based editor
+- [TMux](https://github.com/tmux/tmux/wiki) for terminal window management
+
+With these, I almost never have to leave my keyboard or look for apps on my
+Mac, since the ones I use often have a shortcut attached to them.
+
+To really nerd out, I custom-built my keyboard optimized for navigating
+all these tools. To give you an idea, it is the
+[Kyria](https://splitkb.com/products/kyria-rev3?srsltid=AfmBOorAF2rSaZMGfkKWPGCUrkkkOBXaxIeZKDZtUjMBK-yGTJwR3TRZ)
+in a The Lord of the Rings theme.
+
+
 ## TMUX
 
 Initially `TMUX` wasn't straightforward to install
