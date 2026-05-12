@@ -14,6 +14,7 @@ if status is-interactive
     set -xg HOMEBREW_NO_COLOR 1
     set -xg HOMEBREW_NO_EMOJI 1
 
+    # fish_add_path /opt/homebrew/bin ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin /usr/local/opt/libpq/bin /opt/homebrew/opt/gawk/libexec/gnubin
     fish_add_path ~/bin ~/go/bin ~/.cargo/bin ~/.local/bin /opt/homebrew/bin /usr/local/opt/libpq/bin /opt/homebrew/opt/gawk/libexec/gnubin
     # ASDF configuration code
     if test -z $ASDF_DATA_DIR
@@ -63,3 +64,13 @@ if status is-interactive
 
     set fish_greeting
 end
+
+# Added by `rbenv init` on Tue Oct  7 11:04:14 CEST 2025
+status --is-interactive; and rbenv init - --no-rehash fish | source
+
+# pnpm
+set -gx PNPM_HOME "/Users/mikebijl/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
